@@ -24,39 +24,37 @@ function getHumanChoice(){
     } else if (userChoice.toUpperCase() === "SCISSORS"){
         return "SCISSORS";
     }   
-    else {prompt(userChoice)}
+    else {}
 }
 
 function playRound(humanChoice,computerChoice){
     if (humanChoice === computerChoice){
         console.log('Its a tie')
     }  else if (humanChoice === "ROCK" && computerChoice === "SCISSORS"){
-        console.log("You Win. ROCK Beats SCISSORS")
+        console.log(`You-${humanChoice}\nComputer-${computerChoice}\nYou Win. ROCK Beats SCISSORS`)
         humanScore++;
     } else if (humanChoice === "PAPER" && computerChoice === "ROCK"){
-        console.log("You Win. PAPER Beats ROCK")
+        console.log(`You-${humanChoice}\nComputer-${computerChoice}\nYou Win. PAPER Beats ROCK`)
         humanScore++;
     } else if (humanChoice === "SCISSORS" && computerChoice === "PAPER"){
-        console.log("You Win. SCISSORS Beats PAPER")
+        console.log(`You-${humanChoice}\nComputer-${computerChoice}\nYou Win. SCISSORS Beats PAPER`)
         humanScore++;
     } else if (computerChoice === "ROCK" && humanChoice === "SCISSORS"){
-        console.log("You Lose. ROCK Beats SCISSORS")
+        console.log(`You-${humanChoice}\nComputer-${computerChoice}\nYou Lose. ROCK Beats SCISSORS`)
         computerScore++;
     } else if (computerChoice === "PAPER" && humanChoice === "ROCK"){
-        console.log("You Lose. PAPER Beats ROCK")
+        console.log(`You-${humanChoice}\nComputer-${computerChoice}\nYou Lose. PAPER Beats ROCK`)
         computerScore++;
     } else if (computerChoice === "SCISSORS" && humanChoice === "PAPER"){
-        console.log("You Lose. SCISSORS Beats PAPER")
+        console.log(`You-${humanChoice}\nComputer-${computerChoice}\nYou Lose. SCISSORS Beats PAPER`)
         computerScore++;
     } else {
         console.log('Input Invalid')
     }
 }
 
-let humanInput= getHumanChoice();
-let computerInput = getComputerChoice();
-
-// playRound(humanInput,computerInput)
+// let humanInput= getHumanChoice();
+// let computerInput = getComputerChoice();
 
 function playGame(){
     console.log("Round 1:");
@@ -77,14 +75,12 @@ function playGame(){
 
     console.log("Round 5:");
     playRound(getHumanChoice(),getComputerChoice());
-    console.log(playScore);
+    console.log(`Final Scores: You Scored  ${humanScore} and Computer Scored ${computerScore}`);
 
     if (humanScore>computerScore){
-        console.log(`Final Scores: Human - ${humanScore}, Computer - ${computerScore}.
-                    YOU WIN`);
+        console.log(`YOU WIN`);
     } else {
-        console.log(`Final Scores: Human - ${humanScore}, Computer - ${computerScore}.
-            YOU LOSE`);
+        console.log(`YOU LOSE`);
     }
 }
 
